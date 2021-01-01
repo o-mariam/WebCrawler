@@ -4,15 +4,16 @@ from webcrawler.items import  WebcrawlerItem
 
 class ArticlesSpider(scrapy.Spider):
     name = 'Articles'
-    allowed_domains = ['vox.com']
-    start_urls = ['https://www.vox.com']
+    allowed_domains = ['trtworld.com']
+    start_urls = ['http://trtworld.com/']
 
 
     def start_requests(self):
 
-        url="https://www.vox.com/news/?page={}"
+        url="https://www.trtworld.com/europe?page={}"
+        
 
-        link_urls = [url.format(i) for i in range(0,100)]
+        link_urls = [url.format(i) for i in range(0,500)]
         for link_url in link_urls:
             print(link_url)
 
@@ -22,18 +23,13 @@ class ArticlesSpider(scrapy.Spider):
     def parse_main_pages(self,response):
         item=WebcrawlerItem()
         
-        content=response.xpath('//div[@class="c-entry-box--compact__body"]')
-        for article_link in content.xpath('.//h2[@class="c-entry-box--compact__title"]//a'):
+        content=response.xpath('//div[@class="caption"]')
+        for article_link in content.xpath('.//a[@class="gtm-topic-latest-article"]'):
             item['article_url'] =article_link.xpath('.//@href').extract_first()
 
-            item['article_url'] =  item['article_url']
-            yield(item)
             
-        
-            next_page = response.xpath('//div[@class="c-pagination__next c-pagination__link p-button"]//@href').extract_first()     
-            if next_page is not None:
-                yield scrapy.Request("https://www.vox.com/" + next_page, callback=self.parse)
-
+            item['article_url'] ="https://www.trtworld.com"+item['article_url']
+            yield item
 
     def parse(self, response):
      pass 

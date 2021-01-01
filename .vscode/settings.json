@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "c:\\Users\\kleas\\OneDrive\\Έγγραφα\\Ceid\\10 ΕΠΙΛΟΓΗΣ\\Γλωσσική Τεχνολογία\\webcrawler\\.venv\\Scripts\\python.exe"
+    "python.pythonPath": "c:\\Users\\kleas\\OneDrive\\Έγγραφα\\Ceid\\10 ΕΠΙΛΟΓΗΣ\\Γλωσσική Τεχνολογία\\webcrawler\\.venv\\Scripts\\python.exe",
+    "editor.maxTokenizationLineLength": 120000
 }
