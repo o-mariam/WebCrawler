@@ -29,6 +29,7 @@ class DatabSpider(scrapy.Spider):
 
         item=WebcrawlerItem()
 
+        
 
         item['article_title']=''.join(response.xpath('//div[@class="row tabletRow"]//h3[@class="article-description "]/text()').extract())
     
