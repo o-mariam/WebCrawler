@@ -2,11 +2,27 @@
 
 import pandas as pd
 import json
-import sqlite
+import sqlite3
 
 
-with open("C:\\Users\\kleas\\OneDrive\\Έγγραφα\\Ceid\\10 ΕΠΙΛΟΓΗΣ\\Γλωσσική Τεχνολογία\\webcrawler\\articles_body.json") as f:
+# Open JSON data
+with open("C:\\Users\\kleas\\OneDrive\\Έγγραφα\\Ceid\\10 ΕΠΙΛΟΓΗΣ\\Γλωσσική Τεχνολογία\\webcrawler\\article_body.json") as f:
     data = json.load(f)
 
+# Create A DataFrame From the JSON Data
 df = pd.DataFrame(data)
-df.head()   
+df.insert(0, 'Id', range(0, 0 + len(df)))
+
+print(df)
+
+
+conn=sqlite3.connect("article.db")
+c=conn.cursor()
+
+
+df.to_sql("article",conn)
+
+
+
+
+

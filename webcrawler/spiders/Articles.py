@@ -13,7 +13,7 @@ class ArticlesSpider(scrapy.Spider):
         url="https://www.trtworld.com/europe?page={}"
         
 
-        link_urls = [url.format(i) for i in range(0,500)]
+        link_urls = [url.format(i) for i in range(0,3)]
         for link_url in link_urls:
             print(link_url)
 
@@ -30,10 +30,9 @@ class ArticlesSpider(scrapy.Spider):
             
             item['article_url'] ="https://www.trtworld.com"+item['article_url']
             yield item
-
+   
     def parse(self, response):
      pass 
-
 
 
 
