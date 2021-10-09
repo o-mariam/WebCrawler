@@ -6,7 +6,7 @@ import sqlite3
 
 
 # Open JSON data
-with open("C:\\Users\\kleas\\OneDrive\\Έγγραφα\\Ceid\\10 ΕΠΙΛΟΓΗΣ\\Γλωσσική Τεχνολογία\\webcrawler\\article_body.json") as f:
+with open("C:..\\article_body.json") as f:
     data = json.load(f)
 
 # Create A DataFrame From the JSON Data
