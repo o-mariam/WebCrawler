@@ -1,1 +1,1 @@
-# A webcrawler for news from site like The Guardian.
+# A webcrawler for articles from site like The Guardian.
